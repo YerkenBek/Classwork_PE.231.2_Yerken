@@ -1,4 +1,6 @@
-cost = 1500
+user_in = input("add buy cost: ")
+cost = int(user_in)
+
 if cost < 1000:
     print("скидок нет.")
 if cost < 2000:
