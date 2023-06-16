@@ -54,6 +54,14 @@ class Kassa:
     def get_price(self, source, destination):
         return (len(source) + len(destination) * 1000)
     
+    def buy_ticket(self, source, destination, person):
+        money = person.pay(self.get_price(source, destination) )
+        if money:
+            self.balance += money
+            person.ticket = Ticket(source, destination, person.name, person.iin, person.age)
+        else:
+            print("no money - no ticket!")
+    
 
 
 test_man = Person("Ilon Mask", 56)
@@ -61,9 +69,14 @@ test_man.earn(25000)
 test_man.pay(12931)
 test_man.show()
 
-test_ticket = Ticket("Almaty", "Santiago", test_man.name, test_man.iin, test_man.age)
-test_ticket.show()
+#test_ticket = Ticket("Almaty", "Santiago", test_man.name, test_man.iin, test_man.age)
+#test_ticket.show()
 
 kassa = Kassa()
 price = kassa.get_price("Almaty", "Santiago")
+kassa.buy_ticket("Almaty", "Santiago", test_man)
+
+if test_man.ticket:
+    test_man.ticket.show()
+
 print(price)
