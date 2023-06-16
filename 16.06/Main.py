@@ -8,9 +8,6 @@ test_man.earn(25000)
 test_man.pay(12931)
 test_man.show()
 
-#test_ticket = Ticket("Almaty", "Santiago", test_man.name, test_man.iin, test_man.age)
-#test_ticket.show()
-
 kassa = Kassa()
 price = kassa.get_price("Almaty", "Santiago")
 kassa.buy_ticket("Almaty", "Santiago", test_man)
